@@ -1,4 +1,4 @@
-from flask import Blueprint, jsonify, request, g
+from flask import Blueprint, jsonify, request
 from models.user import UserSchema, User
 from lib.helpers import is_unique
 

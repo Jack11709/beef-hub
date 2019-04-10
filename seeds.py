@@ -46,8 +46,23 @@ with app.app_context():
     category_two = Category(name="Professional")
     category_thre = Category(name="Business")
 
-    beef_one = Beef(beefer=jack, beefee=charlotte, reason="big mouth", categories=[category_one, category_thre], liked_by=[jack, charlotte])
-    beef_two = Beef(beefer=jack, beefee=dexter, reason="Not in 30 under 30 2019", categories=[category_one, category_two], liked_by=[jack, charlotte])
+    beef_one = Beef(
+      beefer=jack, 
+      beefee=charlotte, 
+      reason="big mouth", 
+      categories=[category_one, category_thre], 
+      liked_by=[jack, charlotte],
+      followed_by=[charlotte, dexter, jack]
+    )
+    
+    beef_two = Beef(
+      beefer=jack, 
+      beefee=dexter, 
+      reason="Not in 30 under 30 2019", 
+      categories=[category_one, category_two], 
+      liked_by=[jack, charlotte],
+      followed_by=[dexter]
+    )
 
     comment_one = Comment(content="Yeah she does", beef=beef_one)
     comment_two = Comment(content="On your last year of eligability!", beef=beef_two)

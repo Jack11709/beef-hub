@@ -78,6 +78,7 @@ class UserSchema(ma.ModelSchema, BaseSchema):
     beefs_against = fields.Nested('BeefSchema', many=True, only=('reason', 'id'))
     followed = fields.Nested('UserSchema', many=True, only=('username', 'id'))
     followers = fields.Nested('UserSchema', many=True, only=('username', 'id'))
+    beefs_followed = fields.Nested('BeefSchema', many=True, only=('reason', 'id'))
 
     class Meta:
         model = User

@@ -16,6 +16,12 @@ categories_beefs = db.Table('categories_beefs',
     db.Column('beef_id', db.Integer, db.ForeignKey('beefs.id'), primary_key=True)
 )
 
+followers_beefs = db.Table(
+  'followers_beefs',
+  db.Column('follower_id', db.Integer, db.ForeignKey('users.id')),
+  db.Column('beef_id', db.Integer, db.ForeignKey('beefs.id'))
+)
+
 
 class Beef(db.Model, BaseModel):
 
@@ -29,6 +35,7 @@ class Beef(db.Model, BaseModel):
     still_beefing = db.Column(db.Boolean, nullable=False, default=True)
     categories = db.relationship('Category', secondary=categories_beefs, backref='beefs')
     liked_by = db.relationship('User', secondary=likes, backref='likes')
+    followed_by = db.relationship('User', secondary=followers_beefs, backref='beefs_followed')
 
 class BeefSchema(ma.ModelSchema, BaseSchema):
 
@@ -37,6 +44,7 @@ class BeefSchema(ma.ModelSchema, BaseSchema):
     comments = fields.Nested('CommentSchema', many=True, only=('content', 'id'))
     categories = fields.Nested('CategorySchema', many=True, only=('name', 'id'))
     liked_by = fields.Nested('UserSchema', many=True, only=('id', 'username'))
+    followed_by = fields.Nested('UserSchema', many=True, only=('id', 'username'))
 
     class Meta:
         model = Beef

@@ -31,6 +31,6 @@ def follow():
     data = request.get_json()
     current_user = g.current_user
     followed_user = User.query.get(data['user_id'])
-    current_user.followed.append(followed_user)
-    current_user.save()
-    return user_schema.jsonify(current_user), 200
+    followed_user.followers.append(current_user)
+    followed_user.save()
+    return jsonify({'message: success'}), 200

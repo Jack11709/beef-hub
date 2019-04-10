@@ -66,13 +66,8 @@ class UserSchema(ma.ModelSchema, BaseSchema):
                 'password_confirmation'
             )
 
-    password = fields.String(
-        required=True,
-        validate=[validate.Length(min=8, max=50)]
-    )
-
+    password = fields.String(required=True, validate=[validate.Length(min=8, max=50)])
     password_confirmation = fields.String(required=True)
-
     likes = fields.Nested('BeefSchema', many=True, only=('id', 'reason'))
     created_beefs = fields.Nested('BeefSchema', many=True, only=('reason', 'id'))
     beefs_against = fields.Nested('BeefSchema', many=True, only=('reason', 'id'))

@@ -1,7 +1,6 @@
 from app import app, db
 
-from models.beef import Beef
-from models.comment import Comment
+from models.beef import Beef, Comment
 from models.category import Category
 from models.user import UserSchema
 

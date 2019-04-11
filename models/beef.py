@@ -4,7 +4,6 @@ from .base import BaseModel, BaseSchema
 # pylint: disable=W0611
 from .category import Category
 from .user import User
-from .comment import Comment
 
 likes = db.Table(
     'likes',
@@ -49,3 +48,16 @@ class BeefSchema(ma.ModelSchema, BaseSchema):
 
     class Meta:
         model = Beef
+
+class Comment(db.Model, BaseModel):
+
+    __tablename__ = 'comments'
+
+    content = db.Column(db.Text, nullable=False)
+    beef_id = db.Column(db.Integer, db.ForeignKey('beefs.id'))
+    beef = db.relationship('Beef', backref='comments')
+
+class CommentSchema(ma.ModelSchema, BaseSchema):
+
+    class Meta:
+        model = Comment

@@ -6,6 +6,11 @@ api = Blueprint('user', __name__)
 
 user_schema = UserSchema()
 
+@api.route('/users', methods=['GET'])
+def users_index():
+    users = User.query.all()
+    return user_schema.jsonify(users, many=True), 200
+
 @api.route('/users/profile', methods=['GET'])
 @secure_route
 def show():

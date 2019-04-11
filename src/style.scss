@@ -9,8 +9,29 @@ div.card {
   border: 5px solid red;
 }
 
-div.card-action a {
-  color: red !important;
+div.card-content {
+
+  span.card-title {
+    font-size: 2rem;
+  }
+  p {
+    font-size: 2rem;
+    text-align: center;
+  }
+}
+
+div.card-action {
+  font-size: 1.5rem;
+
+  a {
+    color: red !important;
+
+    &#respond {
+      position: absolute;
+      right: 0vw;
+    }
+  }
+
 }
 
 .hero {

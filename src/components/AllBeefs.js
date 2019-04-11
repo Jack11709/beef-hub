@@ -22,7 +22,7 @@ class AllBeefs extends React.Component{
         </section>
         <div className="container">
           <div className="row">
-            <div className="col s12 m6 l6">
+            <div className="col s12 m12 l12">
               {this.state.beefs.map(beef =>
                 <div key ={beef.id} className="card white">
                   <div className="card-content black-text">
@@ -31,7 +31,7 @@ class AllBeefs extends React.Component{
                   </div>
                   <div className="card-action">
                     <a href="#">Beefer: {beef.beefer.username}</a>
-                    <a href="#">Respond</a>
+                    <a id="respond" href="#">Respond</a>
                   </div>
                 </div>
               )}

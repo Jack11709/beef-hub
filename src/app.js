@@ -8,6 +8,7 @@ import 'materialize-css/dist/css/materialize.min.css'
 import './style.scss'
 
 import AllBeefs from './components/AllBeefs.js'
+import Navbar from './components/Navbar.js'
 
 class App extends React.Component{
   constructor() {
@@ -25,6 +26,7 @@ class App extends React.Component{
     return(
       <BrowserRouter>
         <main>
+          <Navbar />
           <Switch>
             <Route path="/" component={AllBeefs} />
           </Switch>

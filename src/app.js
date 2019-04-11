@@ -8,6 +8,7 @@ import './style.scss'
 
 import Home from './components/Home.js'
 import AllBeefs from './components/AllBeefs.js'
+import Sidenav from './components/Sidenav.js'
 import Navbar from './components/Navbar.js'
 import Register from './components/auth/Register.js'
 import Login from './components/auth/Login.js'
@@ -22,6 +23,7 @@ class App extends React.Component{
     return(
       <BrowserRouter>
         <main>
+          <Sidenav />
           <Navbar />
           <Switch>
             <Route path="/login" component={Login} />

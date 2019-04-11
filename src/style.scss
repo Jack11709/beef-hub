@@ -74,16 +74,30 @@ button.button {
   background-color: black;
   color: white;
   padding: 10px;
-  border-radius: 5px;
+  border-radius: 10px;
   border: 3px solid white;
-  font-size: 2rem;
+  font-size: 1.5rem;
   margin-left: 2px;
   margin-right: 2px;
   font-family: 'Staatliches', cursive;
   position: absolute;
-  left: 50% - calc(117.81px/2);
+  left: 67%;
+
+    &:hover {
+      background-color: red;
+    }
 }
 
-.container.register {
-  padding-top: 45px;
+.container {
+  padding-top: 50px;
+
+  &.register {
+    padding-top: 35px;
+    width: 50vw;
+  }
+
+  &.login {
+    padding-top: 45px;
+    width: 50vw;
+  }
 }

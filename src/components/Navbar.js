@@ -6,9 +6,6 @@ const Navbar = () => {
     <nav>
       <div className="nav-wrapper black">
         <Link to="/beefs" className="brand-logo center"><img width="150"src="https://dumielauxepices.net/sites/default/files/horns-clipart-carabao-642524-3668719.jpg"/></Link>
-        <ul id="nav-mobile" className="right hide-on-med-and-down">
-          <li>Register</li>
-        </ul>
       </div>
     </nav>
   )

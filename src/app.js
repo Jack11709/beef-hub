@@ -3,24 +3,19 @@ import ReactDOM from 'react-dom'
 
 import { BrowserRouter, Route, Switch } from 'react-router-dom'
 
-import axios from 'axios'
 import 'materialize-css/dist/css/materialize.min.css'
 import './style.scss'
 
+import Home from './components/Home.js'
+import Register from './components/auth/Register.js'
 import AllBeefs from './components/AllBeefs.js'
 import Navbar from './components/Navbar.js'
 
 class App extends React.Component{
   constructor() {
     super()
-
-    this.state = { beefs: []}
   }
 
-  componentDidMount() {
-    axios.get('/api/beefs')
-      .then(res => this.setState({ beefs: res.data }))
-  }
 
   render() {
     return(
@@ -28,7 +23,9 @@ class App extends React.Component{
         <main>
           <Navbar />
           <Switch>
-            <Route path="/" component={AllBeefs} />
+            <Route path="/register" component={Register} />
+            <Route path="/beefs" component={AllBeefs} />
+            <Route path="/" component={Home} />
           </Switch>
         </main>
       </BrowserRouter>

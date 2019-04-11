@@ -17,9 +17,6 @@ class AllBeefs extends React.Component{
   render() {
     return(
       <main>
-        <section className="hero">
-          <h1>Got Beef?</h1>
-        </section>
         <div className="container">
           <div className="row">
             <div className="col s12 m12 l12">

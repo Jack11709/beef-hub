@@ -5,6 +5,15 @@ body {
   font-family: 'Staatliches', sans-serif;
 }
 
+nav {
+  height: 8rem;
+
+    ul li {
+      font-size: 2rem;
+      padding: 20px 20px 0 0;
+    }
+}
+
 div.card {
   border: 5px solid red;
 }
@@ -45,4 +54,36 @@ h1 {
   position: absolute;
   top: 15rem;
   left: 28vw;
+}
+
+.input-field.col {
+
+  label {
+    color: white;
+    font-size: 1.5rem;
+  }
+
+  input {
+    color: white;
+    padding-top: 2.5rem;
+    padding-left: 0.5rem;
+  }
+}
+
+button.button {
+  background-color: black;
+  color: white;
+  padding: 10px;
+  border-radius: 5px;
+  border: 3px solid white;
+  font-size: 2rem;
+  margin-left: 2px;
+  margin-right: 2px;
+  font-family: 'Staatliches', cursive;
+  position: absolute;
+  left: 43rem;
+}
+
+.container.register {
+  padding-top: 45px;
 }

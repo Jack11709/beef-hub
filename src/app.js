@@ -1,7 +1,13 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
 
+import { BrowserRouter, Route, Switch } from 'react-router-dom'
+
 import axios from 'axios'
+import 'materialize-css/dist/css/materialize.min.css'
+import './style.scss'
+
+import AllBeefs from './components/AllBeefs.js'
 
 class App extends React.Component{
   constructor() {
@@ -17,16 +23,13 @@ class App extends React.Component{
 
   render() {
     return(
-      <div>
-        {this.state.beefs.map(beef =>
-          <div key ={beef.id}>
-            <h2>Beefee: {beef.beefee.username}</h2>
-            <h2>Beef: {beef.reason}</h2>
-            <h2>Beefer: {beef.beefer.username}</h2>
-          </div>
-
-        )}
-      </div>
+      <BrowserRouter>
+        <main>
+          <Switch>
+            <Route path="/" component={AllBeefs} />
+          </Switch>
+        </main>
+      </BrowserRouter>
     )
   }
 }

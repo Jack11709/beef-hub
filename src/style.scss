@@ -1,1 +1,27 @@
+@import url('https://fonts.googleapis.com/css?family=Staatliches');
 
+body {
+  background-color: black;
+  font-family: 'Staatliches', sans-serif;
+}
+
+div.card {
+  border: 5px solid red;
+}
+
+div.card-action a {
+  color: red !important;
+}
+
+.hero {
+  height: 100vh;
+  background: black;
+  color: white;
+}
+
+h1 {
+  font-size: 12rem;
+  position: absolute;
+  top: 15rem;
+  left: 28vw;
+}

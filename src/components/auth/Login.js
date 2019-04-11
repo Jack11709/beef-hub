@@ -1,6 +1,5 @@
 import React from 'react'
 import axios from 'axios'
-import { Link } from 'react-router-dom'
 
 import Auth from '../../lib/Auth'
 
@@ -19,50 +18,56 @@ class Login extends React.Component {
   }
 
   handleSubmit(e) {
+    console.log('I am running')
+    console.log(this.state.data)
     e.preventDefault()
     axios
       .post('/api/login', this.state.data)
       .then((res) => {
+        console.log(res)
         Auth.setToken(res.data.token)
-        this.props.history.push('/login')
+        this.props.history.push('/beefs')
       })
   }
 
-  handleChange({ target: { name, value }}) {
-    const data = {...this.state.data, [name]: value }
+  handleChange({ target: { id, value }}) {
+    const data = {...this.state.data, [id]: value }
     this.setState({ data })
   }
 
 
   render() {
     return(
-      <div className="row">
-        <form className="col s12">
-          <div className="row">
-            <div className="input-field col s6">
-              <input placeholder="Placeholder" id="first_name" type="text" className="validate"/>
-              <label htmlFor="first_name">Username</label>
+      <div className="container login">
+        <div className="row">
+          <form className="col s12" onSubmit={this.handleSubmit}>
+            <div className="row">
+              <div className="input-field col s12">
+                <input
+                  id="email"
+                  type="email"
+                  className="validate"
+                  onChange={this.handleChange}
+                  value={this.state.email}
+                />
+                <label htmlFor="email">Email</label>
+              </div>
             </div>
-          </div>
-          <div className="row">
-            <div className="input-field col s12">
-              <input id="email" type="email" className="validate"/>
-              <label htmlFor="email">Email</label>
+            <div className="row">
+              <div className="input-field col s12">
+                <input
+                  id="password"
+                  type="password"
+                  className="validate"
+                  onChange={this.handleChange}
+                  value={this.state.password}
+                />
+                <label htmlFor="password">Password</label>
+              </div>
             </div>
-          </div>
-          <div className="row">
-            <div className="input-field col s12">
-              <input id="password" type="password" className="validate"/>
-              <label htmlFor="password">Password</label>
-            </div>
-          </div>
-          <div className="row">
-            <div className="input-field col s12">
-              <input id="password-confirmation" type="password" className="validate"/>
-              <label htmlFor="password">Confirm Password</label>
-            </div>
-          </div>
-        </form>
+            <button className="button">Log In</button>
+          </form>
+        </div>
       </div>
 
 

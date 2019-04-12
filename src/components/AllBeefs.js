@@ -3,7 +3,7 @@ import React from 'react'
 import axios from 'axios'
 
 
- // TODO: Rename this to beeds index please, and refactor into  beefs directory
+// TODO: Rename this to beeds index please, and refactor into  beefs directory
 
 class AllBeefs extends React.Component{
   state = { beefs: [] }

@@ -1,13 +1,7 @@
 import React from 'react'
-
+import { Link } from 'react-router-dom'
 import axios from 'axios'
 
-<<<<<<< HEAD:src/components/beefs/BeefsIndex.js
-=======
-
-// TODO: Rename this to beeds index please, and refactor into  beefs directory
-
->>>>>>> 0b5a78d0d2d80f827ac7491e17ab530011d1dab2:src/components/AllBeefs.js
 class AllBeefs extends React.Component{
   state = { beefs: [] }
 
@@ -17,6 +11,7 @@ class AllBeefs extends React.Component{
   }
 
   render() {
+    console.log(this.state)
     const { beefs } = this.state
     return (
       <main>
@@ -24,24 +19,26 @@ class AllBeefs extends React.Component{
           <div className="row">
             <div className="col s12 m12 l12">
               {beefs.map(beef => (
-                <div key={beef.id} className="card white">
-                  <div className="card-content black-text">
-                    <span className="card-title">
-                    Beefee:
-                      {beef.beefee.username}
-                    </span>
-                    <p>{beef.reason}</p>
+                <Link to={`/beefs/${beef.id}`}>
+                  <div key={beef.id} className="card white">
+                    <div className="card-content black-text">
+                      <span className="card-title">
+                      Beefee:
+                        {beef.beefee.username}
+                      </span>
+                      <p>{beef.reason}</p>
+                    </div>
+                    <div className="card-action">
+                      <a href="#">
+                      Beefer:
+                        {beef.beefer.username}
+                      </a>
+                      <a id="respond" href="#">
+                      Respond
+                      </a>
+                    </div>
                   </div>
-                  <div className="card-action">
-                    <a href="#">
-                    Beefer:
-                      {beef.beefer.username}
-                    </a>
-                    <a id="respond" href="#">
-                    Respond
-                    </a>
-                  </div>
-                </div>
+                </Link>
               ))}
             </div>
           </div>

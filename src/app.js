@@ -6,19 +6,14 @@ import { BrowserRouter, Route, Switch } from 'react-router-dom'
 import 'materialize-css/dist/css/materialize.min.css'
 import './style.scss'
 
-import Home from './components/Home.js'
-import AllBeefs from './components/AllBeefs.js'
-import Sidenav from './components/Sidenav.js'
-import Navbar from './components/Navbar.js'
-import Register from './components/auth/Register.js'
-import Login from './components/auth/Login.js'
+import Home from './components/Home'
+import AllBeefs from './components/AllBeefs'
+import Sidenav from './components/Sidenav'
+import Navbar from './components/Navbar'
+import Register from './components/auth/Register'
+import Login from './components/auth/Login'
 
-class App extends React.Component{
-  constructor() {
-    super()
-  }
-
-
+class App extends React.Component {
   render() {
     return(
       <BrowserRouter>

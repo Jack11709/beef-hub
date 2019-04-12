@@ -2,12 +2,11 @@ import React from 'react'
 
 import axios from 'axios'
 
-class AllBeefs extends React.Component{
-  constructor() {
-    super()
 
-    this.state = { beefs: []}
-  }
+ // TODO: Rename this to beeds index please, and refactor into  beefs directory
+
+class AllBeefs extends React.Component{
+  state = { beefs: [] }
 
   componentDidMount() {
     axios.get('/api/beefs')
@@ -15,7 +14,7 @@ class AllBeefs extends React.Component{
   }
 
   render() {
-    return(
+    return (
       <main>
         <div className="container">
           <div className="row">

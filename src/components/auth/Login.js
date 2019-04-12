@@ -4,40 +4,35 @@ import axios from 'axios'
 import Auth from '../../lib/Auth'
 
 class Login extends React.Component {
-  constructor() {
-    super()
-
-    this.state = {
-      data: {
-        email: '',
-        password: ''
-      }
+  // So we dont need constructors, just define your state as per below
+  state = {
+    data: {
+      email: '',
+      password: '',
     }
-    this.handleChange = this.handleChange.bind(this)
-    this.handleSubmit = this.handleSubmit.bind(this)
   }
 
-  handleSubmit(e) {
-    console.log('I am running')
-    console.log(this.state.data)
+  // we are going to use anon arrow function now, these will bind directly to the class, so no need to do that anymore
+  handleSubmit = (e) => {
     e.preventDefault()
+    const { data } = this.state
+    const { history } = this.props
     axios
-      .post('/api/login', this.state.data)
+      .post('/api/login', data)
       .then((res) => {
-        console.log(res)
         Auth.setToken(res.data.token)
-        this.props.history.push('/beefs')
+        history.push('/beefs')
       })
   }
 
-  handleChange({ target: { id, value }}) {
-    const data = {...this.state.data, [id]: value }
-    this.setState({ data })
+  handleChange = ({ target: { id, value }}) => {
+    this.setState(prevState => ({ data: {...prevState.data, [id]: value } }))
   }
 
 
   render() {
-    return(
+    const { email, password } = this.state
+    return (
       <div className="container login">
         <div className="row">
           <form className="col s12" onSubmit={this.handleSubmit}>
@@ -48,7 +43,7 @@ class Login extends React.Component {
                   type="email"
                   className="validate"
                   onChange={this.handleChange}
-                  value={this.state.email}
+                  value={email}
                 />
                 <label htmlFor="email">Email</label>
               </div>
@@ -60,17 +55,15 @@ class Login extends React.Component {
                   type="password"
                   className="validate"
                   onChange={this.handleChange}
-                  value={this.state.password}
+                  value={password}
                 />
                 <label htmlFor="password">Password</label>
               </div>
             </div>
-            <button className="button">Log In</button>
+            <button type="submit" className="button">Log In</button>
           </form>
         </div>
       </div>
-
-
     )
   }
 }

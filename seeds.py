@@ -13,6 +13,7 @@ with app.app_context():
     jack, errors = user_schema.load({
         'username': 'beanslord',
         'email': 'jack@email.com',
+        'profile_image': 'https://i.imgur.com/kkszbMC.jpg?1',
         'password': 'password',
         'password_confirmation': 'password'
     })
@@ -23,6 +24,7 @@ with app.app_context():
     charlotte, errors = user_schema.load({
         'username': 'charizard',
         'email': 'charlotte@email.com',
+        'profile_image': 'https://oldmooresalmanac.com/wp-content/uploads/2017/11/cow-2896329_960_720-Copy.jpg',
         'password': 'password',
         'password_confirmation': 'password'
     })
@@ -33,6 +35,7 @@ with app.app_context():
     dexter, errors = user_schema.load({
         'username': 'lrgazn',
         'email': 'dexter@email.com',
+        'profile_image': 'https://oldmooresalmanac.com/wp-content/uploads/2017/11/cow-2896329_960_720-Copy.jpg',
         'password': 'password',
         'password_confirmation': 'password'
     })

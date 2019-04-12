@@ -2,6 +2,12 @@ import React from 'react'
 
 import axios from 'axios'
 
+<<<<<<< HEAD:src/components/beefs/BeefsIndex.js
+=======
+
+// TODO: Rename this to beeds index please, and refactor into  beefs directory
+
+>>>>>>> 0b5a78d0d2d80f827ac7491e17ab530011d1dab2:src/components/AllBeefs.js
 class AllBeefs extends React.Component{
   state = { beefs: [] }
 

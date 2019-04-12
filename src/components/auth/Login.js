@@ -25,6 +25,7 @@ class Login extends React.Component {
       })
   }
 
+  // im always setting state using the prevState callback argument here now, the linter will let you know when to do this
   handleChange = ({ target: { id, value }}) => {
     this.setState(prevState => ({ data: {...prevState.data, [id]: value } }))
   }

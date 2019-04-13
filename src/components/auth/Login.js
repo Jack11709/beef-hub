@@ -13,16 +13,13 @@ class Login extends React.Component {
   }
 
   // we are going to use anon arrow function now, these will bind directly to the class, so no need to do that anymore
-  handleSubmit = (e) => {
+  handleSubmit = async (e) => {
     e.preventDefault()
     const { data } = this.state
     const { history } = this.props
-    axios
-      .post('/api/login', data)
-      .then((res) => {
-        Auth.setToken(res.data.token)
-        history.push('/beefs')
-      })
+    const res = await axios.post('/api/login', data)
+    Auth.setToken(res.data.token)
+    history.push('/beefs')
   }
 
   // im always setting state using the prevState callback argument here now, the linter will let you know when to do this

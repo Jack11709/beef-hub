@@ -16,7 +16,7 @@ class User(db.Model, BaseModel):
 
     __tablename__ = 'users'
 
-    username = db.Column(db.String(20), nullable=False, unique=True)
+    username = db.Column(db.String(50), nullable=False, unique=True)
     email = db.Column(db.String(128), nullable=False, unique=True)
     profile_image = db.Column(db.String(3000), nullable=False)
     password_hash = db.Column(db.String(128), nullable=True)

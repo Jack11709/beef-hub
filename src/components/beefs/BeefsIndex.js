@@ -2,12 +2,13 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import axios from 'axios'
 
-class AllBeefs extends React.Component{
+class BeefsIndex extends React.Component{
   state = { beefs: [] }
 
-  componentDidMount() {
-    axios.get('/api/beefs')
-      .then(res => this.setState({ beefs: res.data }))
+
+  async componentDidMount() {
+    const res = await axios.get('/api/beefs')
+    this.setState({beefs: res.data})
   }
 
   render() {
@@ -48,4 +49,4 @@ class AllBeefs extends React.Component{
   }
 }
 
-export default AllBeefs
+export default BeefsIndex

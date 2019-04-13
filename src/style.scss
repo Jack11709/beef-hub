@@ -64,12 +64,22 @@ h1 {
   label {
     color: white;
     font-size: 1.5rem;
+
+      &:active {
+        color: red !important;
+      }
   }
 
   input {
     color: white;
     padding-top: 2.5rem;
     padding-left: 0.5rem;
+
+      &:focus {
+        border-bottom: 1px solid red !important;
+        -webkit-box-shadow: 0 1px 0 0 red !important;
+        box-shadow: 0 1px 0 0 #red !important;
+      }
   }
 }
 
@@ -95,7 +105,7 @@ button.button {
   padding-top: 50px;
 
   &.register {
-    padding-top: 35px;
+    padding-top: 10px;
     width: 50vw;
   }
 
@@ -107,4 +117,8 @@ button.button {
 
 h2 {
   color: white;
+}
+
+div.row {
+  margin: 0;
 }

@@ -15,16 +15,13 @@ class Register extends React.Component {
     }
 
 
-  handleSubmit = (e) => {
+  handleSubmit = async (e) => {
     e.preventDefault()
     const { data } = this.state
     const { history } = this.props
-    axios
-      .post('/api/register', data)
-      .then((res) => {
-        Auth.setToken(res.data.token)
-        history.push('/login')
-      })
+    const res = await axios.post('/api/register', data)
+    Auth.setToken(res.data.token)
+    history.push('/login')
   }
 
   handleChange = ({ target: { id, value }}) => {
@@ -36,7 +33,8 @@ class Register extends React.Component {
       username,
       email,
       password,
-      passwordConfirmation
+      passwordConfirmation,
+      profileImage
     } = this.state
     return (
       <div className="container register">
@@ -88,6 +86,18 @@ class Register extends React.Component {
                   value={passwordConfirmation}
                 />
                 <label htmlFor="password_confirmation">Confirm Password</label>
+              </div>
+            </div>
+            <div className="row">
+              <div className="input-field col s12">
+                <input
+                  id="profile_image"
+                  type="text"
+                  className="validate"
+                  onChange={this.handleChange}
+                  value={profileImage}
+                />
+                <label htmlFor="profile_image">Profile Image</label>
               </div>
             </div>
             <button type="submit" className="button">Register</button>

@@ -1,15 +1,15 @@
 import React from 'react'
 import axios from 'axios'
 import { Link } from 'react-router-dom'
-import M from 'materialize-css'
+import M from 'materialize-css/dist/js/materialize.min.js'
+import { Collapsible, CollapsibleItem, Row, Col } from 'react-materialize'
 
 import Auth from '../../lib/Auth'
 
 
 class ProfilePage extends React.Component {
   async componentDidMount() {
-    const elem = document.querySelector('.collapsible')
-    M.Collapsible.init(elem)
+    M.AutoInit()
     const res = await axios.get('/api/users/profile', {
       headers: { Authorization: `Bearer ${Auth.getToken()}` }
     })
@@ -22,22 +22,45 @@ class ProfilePage extends React.Component {
     const { user } = this.state
     return (
       <div>
-        <h2>
-          User:
-          {user.username}
-        </h2>
-        <div className="beefs-following">
-          <h2>You are currently following these beefs:</h2>
-          <ul className="collapsible">
-            {user.beefs_followed.map(beef => (
-              <li key={beef.id}>
-                <div className="collapsible-header">Beef</div>
-                <div className="collapsible-body">
-                  <span>{beef.reason}</span>
-                </div>
-              </li>
-            ))}
-          </ul>
+        <div className="container">
+          <Row>
+            <Col s={6}>
+              <img src={user.profile_image} width="250" alt="cow" />
+            </Col>
+            <Col s={6}>
+              <h2 className="username-header">
+                {user.username}
+                &apos;s profile
+              </h2>
+              <div className="profile-flames">
+                {user.likes.map(() => <img src="https://i.pinimg.com/originals/10/9e/11/109e11c6b044482c1e3a7726cf565ca5.png" width="25" alt="flame" />)}
+              </div>
+            </Col>
+          </Row>
+        </div>
+        <div className="container">
+          <Row>
+            <Col s={6}>
+              <div className="beefs-following">
+                <h2 className="profile-following-header">You follow these beefs:</h2>
+                <Collapsible>
+                  {user.beefs_followed.map(beef => (
+                    <CollapsibleItem key={beef.id} header="Beef">{beef.reason}</CollapsibleItem>
+                  ))}
+                </Collapsible>
+              </div>
+            </Col>
+            <Col s={6}>
+              <div className="beefs-against">
+                <h2 className="profile-against-header">You raised these beefs:</h2>
+                <Collapsible>
+                  {user.beefs_against.map(beef => (
+                    <CollapsibleItem key={beef.id} header="Beef">{beef.reason}</CollapsibleItem>
+                  ))}
+                </Collapsible>
+              </div>
+            </Col>
+          </Row>
         </div>
       </div>
     )

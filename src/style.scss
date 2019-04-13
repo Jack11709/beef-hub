@@ -124,8 +124,45 @@ button.button {
 
 h2 {
   color: white;
+  padding: 10px;
+
+    &.profile-following-header {
+      font-size: 1.5rem;
+    }
+
+    &.profile-against-header {
+      font-size: 1.5rem;
+    }
+
+    &.username-header {
+      text-align: right;
+      padding: 2px;
+    }
 }
 
 div.row {
   margin: 0;
+}
+
+div.collapsible-body {
+  color: white;
+}
+
+div {
+
+  &.beefs-following {
+    // width: 50%;
+  }
+
+  &.beefs-against {
+    // width: 50%;
+  }
+
+  &.profile-flames {
+    text-align: right;
+
+      img {
+        padding: 3px;
+      }
+  }
 }

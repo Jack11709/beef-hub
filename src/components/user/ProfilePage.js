@@ -1,15 +1,15 @@
 import React from 'react'
 import axios from 'axios'
 import { Link } from 'react-router-dom'
+import M from 'materialize-css'
 
 import Auth from '../../lib/Auth'
 
 
 class ProfilePage extends React.Component {
-
-
-
   async componentDidMount() {
+    const elem = document.querySelector('.collapsible')
+    M.Collapsible.init(elem)
     const res = await axios.get('/api/users/profile', {
       headers: { Authorization: `Bearer ${Auth.getToken()}` }
     })
@@ -28,7 +28,16 @@ class ProfilePage extends React.Component {
         </h2>
         <div className="beefs-following">
           <h2>You are currently following these beefs:</h2>
-          {user.beefs_followed.map(beef => <div key={beef.id}><h2>{beef.reason}</h2></div>)}
+          <ul className="collapsible">
+            {user.beefs_followed.map(beef => (
+              <li key={beef.id}>
+                <div className="collapsible-header">Beef</div>
+                <div className="collapsible-body">
+                  <span>{beef.reason}</span>
+                </div>
+              </li>
+            ))}
+          </ul>
         </div>
       </div>
     )

@@ -3,10 +3,10 @@ import React from 'react'
 import axios from 'axios'
 
 class BeefShow extends React.Component {
-  componentDidMount() {
+  async componentDidMount() {
     const { match } = this.props
-    axios.get(`/api/beefs/${match.params.id}`)
-      .then(res => this.setState({ beef: res.data }))
+    const res = await axios.get(`/api/beefs/${match.params.id}`)
+    this.setState({ beef: res.data })
   }
 
 

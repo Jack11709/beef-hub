@@ -9,7 +9,8 @@ import './style.scss'
 import Home from './components/Home'
 import BeefShow from './components/beefs/BeefShow'
 import BeefsIndex from './components/beefs/BeefsIndex'
-import Sidenav from './components/Sidenav'
+import ProfilePage from './components/user/ProfilePage'
+import SecureRoute from './lib/SecureRoute'
 import Navbar from './components/Navbar'
 import Register from './components/auth/Register'
 import Login from './components/auth/Login'
@@ -18,10 +19,10 @@ const App = () => {
   return (
     <BrowserRouter>
       <main>
-        <Sidenav />
         <Navbar />
         <Switch>
           <Route path="/beefs/:id" component={BeefShow} />
+          <SecureRoute path="/user/profile" component={ProfilePage} />
           <Route path="/login" component={Login} />
           <Route path="/register" component={Register} />
           <Route path="/beefs" component={BeefsIndex} />

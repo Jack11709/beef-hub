@@ -18,9 +18,8 @@ class Login extends React.Component {
     const { data } = this.state
     const { history } = this.props
     try {
-      const post = await axios.post('/api/login', data)
-      const token = await post.data.token
-      Auth.setToken(token)
+      const res = await axios.post('/api/login', data)
+      Auth.setToken(res.data.token)
       history.push('/beefs')
     } catch (err) {
       console.log(err)

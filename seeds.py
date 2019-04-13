@@ -67,13 +67,13 @@ with app.app_context():
 
     category_one = Category(name="Personal")
     category_two = Category(name="Professional")
-    category_thre = Category(name="Business")
+    category_three = Category(name="Business")
 
     beef_one = Beef(
       beefer=jack,
       beefee=charlotte,
       reason="big mouth",
-      categories=[category_one, category_thre],
+      categories=[category_one, category_three],
       liked_by=[jack, charlotte, mike, tom],
       followed_by=[charlotte, dexter, jack, tom, mike]
     )
@@ -91,8 +91,17 @@ with app.app_context():
       beefer=charlotte,
       beefee=jack,
       reason="being yelled at whilst creating beef hub",
-      categories=[category_one, category_thre],
-      liked_by=[mike, tom], dexter],
+      categories=[category_one, category_three],
+      liked_by=[mike, tom, dexter],
+      followed_by=[charlotte, dexter, jack, mike]
+    )
+
+    beef_four = Beef(
+      beefer=dexter,
+      beefee=jack,
+      reason="being given a dumb username",
+      categories=[category_one, category_three],
+      liked_by=[mike, tom, dexter],
       followed_by=[charlotte, dexter, jack, mike]
     )
 
@@ -110,6 +119,7 @@ with app.app_context():
     db.session.add(category_one)
     db.session.add(beef_one)
     db.session.add(beef_two)
+    db.session.add(beef_four)
     db.session.add(comment_one)
     db.session.add(comment_two)
 

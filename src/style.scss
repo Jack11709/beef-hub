@@ -10,9 +10,14 @@ nav {
 
     ul {
 
-      li {
+      li a {
         font-size: 2rem;
         padding: 20px 20px 0 0;
+        transition: color 0.5s ease;
+
+        &:hover {
+          color: red;
+        }
       }
     }
 }
@@ -64,12 +69,23 @@ h1 {
   label {
     color: white;
     font-size: 1.5rem;
+
+      &:active {
+        color: red !important;
+      }
   }
 
   input {
     color: white;
     padding-top: 2.5rem;
     padding-left: 0.5rem;
+    transition: border-bottom -webkit-box-shadow 1s ease;
+
+      &:focus {
+        border-bottom: 1px solid red !important;
+        -webkit-box-shadow: 0 1px 0 0 red !important;
+        box-shadow: 0 1px 0 0 #red !important;
+      }
   }
 }
 
@@ -85,6 +101,7 @@ button.button {
   font-family: 'Staatliches', cursive;
   position: absolute;
   left: 67%;
+  transition: background-color 0.75s ease;
 
     &:hover {
       background-color: red;
@@ -95,7 +112,7 @@ button.button {
   padding-top: 50px;
 
   &.register {
-    padding-top: 35px;
+    padding-top: 10px;
     width: 50vw;
   }
 
@@ -107,4 +124,8 @@ button.button {
 
 h2 {
   color: white;
+}
+
+div.row {
+  margin: 0;
 }

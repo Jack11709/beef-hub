@@ -37,6 +37,9 @@ class BeefsIndex extends React.Component{
                       <a id="respond" href="#">
                       Respond
                       </a>
+                      <div className="index-flames">
+                        {beef.liked_by.map(() => <img src="../../assets/flame.png" width="25" alt="flame" />)}
+                      </div>
                     </div>
                   </div>
                 </Link>

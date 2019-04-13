@@ -33,7 +33,7 @@ class ProfilePage extends React.Component {
                 &apos;s profile
               </h2>
               <div className="profile-flames">
-                {user.likes.map(() => <img src="https://i.pinimg.com/originals/10/9e/11/109e11c6b044482c1e3a7726cf565ca5.png" width="25" alt="flame" />)}
+                {user.likes.map(() => <img src="../../assets/flame.png" width="25" alt="flame" />)}
               </div>
             </Col>
           </Row>

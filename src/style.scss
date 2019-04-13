@@ -10,9 +10,14 @@ nav {
 
     ul {
 
-      li {
+      li a {
         font-size: 2rem;
         padding: 20px 20px 0 0;
+        transition: color 0.5s ease;
+
+        &:hover {
+          color: red;
+        }
       }
     }
 }
@@ -74,6 +79,7 @@ h1 {
     color: white;
     padding-top: 2.5rem;
     padding-left: 0.5rem;
+    transition: border-bottom -webkit-box-shadow 1s ease;
 
       &:focus {
         border-bottom: 1px solid red !important;
@@ -95,6 +101,7 @@ button.button {
   font-family: 'Staatliches', cursive;
   position: absolute;
   left: 67%;
+  transition: background-color 0.75s ease;
 
     &:hover {
       background-color: red;

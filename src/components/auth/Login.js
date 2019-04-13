@@ -19,7 +19,7 @@ class Login extends React.Component {
     const { history } = this.props
     const res = await axios.post('/api/login', data)
     Auth.setToken(res.data.token)
-    history.push('/beefs')
+    history.push('/user/profile')
   }
 
   // im always setting state using the prevState callback argument here now, the linter will let you know when to do this

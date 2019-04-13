@@ -52,7 +52,7 @@ class ProfilePage extends React.Component {
             </Col>
             <Col s={6}>
               <div className="beefs-against">
-                <h2 className="profile-against-header">You raised these beefs:</h2>
+                <h2 className="profile-against-header">Beefs against you:</h2>
                 <Collapsible>
                   {user.beefs_against.map(beef => (
                     <CollapsibleItem key={beef.id} header="Beef">{beef.reason}</CollapsibleItem>

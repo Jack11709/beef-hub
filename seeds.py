@@ -97,16 +97,16 @@ with app.app_context():
     )
 
     beef_four = Beef(
-      beefer=dexter,
-      beefee=jack,
+      beefer=jack,
+      beefee=dexter,
       reason="being given a dumb username",
       categories=[category_one, category_three],
       liked_by=[mike, tom, dexter],
       followed_by=[charlotte, dexter, jack, mike]
     )
 
-    comment_one = Comment(content="Yeah she does", beef=beef_one)
-    comment_two = Comment(content="On your last year of eligability!", beef=beef_two)
+    comment_one = Comment(content="Yeah she does", beef=beef_one, owner=tom)
+    comment_two = Comment(content="On your last year of eligability!", beef=beef_two, owner=dexter)
 
 
     db.session.add(jack)

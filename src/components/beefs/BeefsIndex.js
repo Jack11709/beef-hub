@@ -5,7 +5,6 @@ import axios from 'axios'
 class BeefsIndex extends React.Component{
   state = { beefs: [] }
 
-
   async componentDidMount() {
     const res = await axios.get('/api/beefs')
     this.setState({beefs: res.data})

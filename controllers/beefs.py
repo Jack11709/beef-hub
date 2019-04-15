@@ -25,9 +25,9 @@ def create():
     beef, errors = beef_schema.load(data)
     if errors:
         return jsonify(errors), 422
-    if data['category_id']:
-        category = Category.query.get(data['category_id'])
-        beef.categories.append(category)
+    category = Category.query.get(data['category_id'])
+    beef.categories.append(category)
+    beef.owner = g.current_user
     beef.save()
     return beef_schema.jsonify(beef)
 
@@ -48,6 +48,7 @@ def delete(beef_id):
 
 
 @api.route('/beefs/<int:beef_id>/comments', methods=['POST'])
+@secure_route
 def comment_create(beef_id):
     data = request.get_json()
     beef = Beef.query.get(beef_id)
@@ -55,6 +56,7 @@ def comment_create(beef_id):
     if errors:
         return jsonify(errors), 422
     comment.beef = beef
+    comment.owner = g.current_user
     comment.save()
     return comment_schema.jsonify(comment)
 

@@ -1,8 +1,13 @@
 import React from 'react'
 import axios from 'axios'
-import { Link } from 'react-router-dom'
-import M from 'materialize-css/dist/js/materialize.min.js'
-import { Collapsible, CollapsibleItem, Row, Col } from 'react-materialize'
+// import { Link } from 'react-router-dom'
+import M from 'materialize-css/dist/js/materialize.min'
+import {
+  Collapsible,
+  CollapsibleItem,
+  Row,
+  Col
+} from 'react-materialize'
 
 import Auth from '../../lib/Auth'
 

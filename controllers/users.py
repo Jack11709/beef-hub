@@ -19,14 +19,10 @@ def show():
 @api.route('/users/profile', methods=['PUT'])
 @secure_route
 def update():
-
     user, errors = user_schema.load(request.get_json(), instance=g.current_user, partial=True)
-
     if errors:
         return jsonify(errors), 422
-
     user.save()
-
     g.current_user = user
     return user_schema.jsonify(g.current_user)
 

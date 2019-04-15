@@ -25,8 +25,9 @@ def create():
     beef, errors = beef_schema.load(data)
     if errors:
         return jsonify(errors), 422
-    category = Category.query.get(data['category_id'])
-    beef.categories.append(category)
+    if data['category_id']:
+        category = Category.query.get(data['category_id'])
+        beef.categories.append(category)
     beef.save()
     return beef_schema.jsonify(beef)
 

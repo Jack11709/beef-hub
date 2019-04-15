@@ -41,7 +41,7 @@ class BeefSchema(ma.ModelSchema, BaseSchema):
 
     beefer = fields.Nested('UserSchema', only=('id', 'username'))
     beefee = fields.Nested('UserSchema', only=('id', 'username'))
-    comments = fields.Nested('CommentSchema', many=True, only=('content', 'id', 'owner'))
+    comments = fields.Nested('CommentSchema', many=True)
     categories = fields.Nested('CategorySchema', many=True, only=('name', 'id'))
     liked_by = fields.Nested('UserSchema', many=True, only=('id', 'username'))
     followed_by = fields.Nested('UserSchema', many=True, only=('id', 'username'))
@@ -60,7 +60,7 @@ class Comment(db.Model, BaseModel):
     owner = db.relationship('User', backref='user_comments')
 
 class CommentSchema(ma.ModelSchema, BaseSchema):
-    fields.Nested('UserSchema', only=('id', 'username'))
+    owner = fields.Nested('UserSchema', only=('id', 'username'))
 
     class Meta:
         model = Comment

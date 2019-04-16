@@ -61,6 +61,7 @@ class Comment(db.Model, BaseModel):
     owner = db.relationship('User', backref='user_comments')
 
 class CommentSchema(ma.ModelSchema, BaseSchema):
+    
     owner = fields.Nested('UserSchema', only=('id', 'username'))
 
     class Meta:

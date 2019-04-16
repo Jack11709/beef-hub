@@ -11,15 +11,16 @@ likes = db.Table(
     db.Column('user_id', db.Integer, db.ForeignKey('users.id'))
 )
 
-categories_beefs = db.Table('categories_beefs',
+categories_beefs = db.Table(
+    'categories_beefs',
     db.Column('category_id', db.Integer, db.ForeignKey('categories.id'), primary_key=True),
     db.Column('beef_id', db.Integer, db.ForeignKey('beefs.id'), primary_key=True)
 )
 
 followers_beefs = db.Table(
-  'followers_beefs',
-  db.Column('follower_id', db.Integer, db.ForeignKey('users.id')),
-  db.Column('beef_id', db.Integer, db.ForeignKey('beefs.id'))
+    'followers_beefs',
+    db.Column('follower_id', db.Integer, db.ForeignKey('users.id')),
+    db.Column('beef_id', db.Integer, db.ForeignKey('beefs.id'))
 )
 
 

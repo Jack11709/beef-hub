@@ -9,7 +9,7 @@ class Category(db.Model, BaseModel):
 
     name = db.Column(db.String(40), unique=True, nullable=False)
 
-class CategorySchema(ma.ModelSchema):
+class CategorySchema(ma.ModelSchema, BaseModel):
 
     class Meta:
         model = Category
